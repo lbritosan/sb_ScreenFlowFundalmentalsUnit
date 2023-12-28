@@ -53,7 +53,7 @@
         <name>FlexiPage</name>
     </types>
     <types>
-        <members>SampleFlowName</members>
+        <members>Resource_Management</members>
         <name>Flow</name>
     </types>
 
@@ -64,6 +64,11 @@
     </types>
 
     -->
+
+    <types>
+        <members>Resource_Management</members>
+        <name>Flow</name>
+    </types>
     
     <version>58.0</version>
 </Package>

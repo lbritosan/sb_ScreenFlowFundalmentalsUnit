@@ -91,14 +91,14 @@
             <assignToReference>resource_name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>example_variable</elementReference>
+                <elementReference>it_resource_name</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>create_or_edit</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>example_variable</elementReference>
+                <elementReference>resource_input</elementReference>
             </value>
         </assignmentItems>
         <connector>
@@ -594,6 +594,111 @@
             <fieldText>Resource Description</fieldText>
             <fieldType>LargeTextArea</fieldType>
             <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>lu_account</name>
+            <extensionName>flowruntime:lookup</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>fieldApiName</name>
+                <value>
+                    <stringValue>Account__c</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Account</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>objectApiName</name>
+                <value>
+                    <stringValue>Resource__c</stringValue>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <storeOutputAutomatically>true</storeOutputAutomatically>
+        </fields>
+        <fields>
+            <name>mspl_target_audience</name>
+            <choiceReferences>choiceset_resource_audience_type</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>target audience</fieldText>
+            <fieldType>MultiSelectPicklist</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>pl_resource_type</name>
+            <choiceReferences>choiceset_resource_type</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Resource Type</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Event_Details</name>
+            <fieldText>Event Details</fieldText>
+            <fieldType>RegionContainer</fieldType>
+            <fields>
+                <name>Event_Details_Column1</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>idt_Start_Date_and_Time</name>
+                    <dataType>DateTime</dataType>
+                    <fieldText>start date and time</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;enter a start date later than end date&lt;/span&gt;&lt;/p&gt;</helpText>
+                    <isRequired>false</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;enter a start date later than end date&lt;/span&gt;&lt;/p&gt;</errorMessage>
+                        <formulaExpression>{!idt_Start_Date_and_Time} &lt; {!idt_End_Date_and_Time}</formulaExpression>
+                    </validationRule>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <fields>
+                <name>Event_Details_Column2</name>
+                <fieldType>Region</fieldType>
+                <fields>
+                    <name>idt_End_Date_and_Time</name>
+                    <dataType>DateTime</dataType>
+                    <fieldText>end date and time</fieldText>
+                    <fieldType>InputField</fieldType>
+                    <helpText>&lt;p&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255); color: rgb(68, 68, 68);&quot;&gt;enter a start date later than end date&lt;/span&gt;&lt;/p&gt;</helpText>
+                    <isRequired>false</isRequired>
+                    <validationRule>
+                        <errorMessage>&lt;p&gt;enter a start date later than end date&lt;/p&gt;</errorMessage>
+                        <formulaExpression>{!idt_Start_Date_and_Time} &lt; {!idt_End_Date_and_Time}</formulaExpression>
+                    </validationRule>
+                </fields>
+                <inputParameters>
+                    <name>width</name>
+                    <value>
+                        <stringValue>6</stringValue>
+                    </value>
+                </inputParameters>
+                <isRequired>false</isRequired>
+            </fields>
+            <isRequired>false</isRequired>
+            <regionContainerType>SectionWithHeader</regionContainerType>
+            <visibilityRule>
+                <conditionLogic>and</conditionLogic>
+                <conditions>
+                    <leftValueReference>pl_resource_type</leftValueReference>
+                    <operator>EqualTo</operator>
+                    <rightValue>
+                        <stringValue>Event</stringValue>
+                    </rightValue>
+                </conditions>
+            </visibilityRule>
         </fields>
         <showFooter>true</showFooter>
         <showHeader>true</showHeader>

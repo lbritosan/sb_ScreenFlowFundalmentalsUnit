@@ -39,21 +39,21 @@
             <assignToReference>resource.Account__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>example_variable</elementReference>
+                <elementReference>lu_account.recordId</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>resource.Target_Audience__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>example_variable</elementReference>
+                <elementReference>mspl_target_audience</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>resource.Type__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>example_variable</elementReference>
+                <elementReference>pl_resource_type</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -67,14 +67,14 @@
             <assignToReference>resource.Start_Date__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
+                <elementReference>idt_Start_Date_and_Time</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
             <assignToReference>resource.End_Date__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
+                <elementReference>idt_End_Date_and_Time</elementReference>
             </value>
         </assignmentItems>
         <connector>
